@@ -34,7 +34,7 @@ function App() {
               <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-yellow-900/40 via-neutral-900 to-black pointer-events-none" />
 
               <div className="container mx-auto px-6 relative z-10">
-                <Reveal>
+                <Reveal width="100%">
                   <div className="text-center mb-12 md:mb-16">
                     <span className="text-yellow-500 font-mono font-bold uppercase tracking-widest text-xs md:text-sm">Technology Meets Craftsmanship</span>
                     <h2 className="text-3xl md:text-5xl font-black text-white mt-3 uppercase tracking-tighter">

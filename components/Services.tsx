@@ -30,7 +30,7 @@ const Services: React.FC = () => {
         <section className="py-24 bg-neutral-900 text-white">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
-                    <Reveal>
+                    <Reveal width="100%">
                         <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-6">
                             Core <span className="text-yellow-500">Services</span>
                         </h2>
