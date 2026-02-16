@@ -1,5 +1,6 @@
 import React from 'react';
 import { Hammer, Home, Umbrella, Wind } from 'lucide-react';
+import { Reveal } from './Reveal';
 
 const Services: React.FC = () => {
     const services = [
@@ -29,25 +30,29 @@ const Services: React.FC = () => {
         <section className="py-24 bg-neutral-900 text-white">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-6">
-                        Core <span className="text-yellow-500">Services</span>
-                    </h2>
-                    <p className="text-neutral-400 max-w-2xl mx-auto">
-                        Comprehensive exterior solutions engineered for durability and performance.
-                    </p>
+                    <Reveal>
+                        <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-6">
+                            Core <span className="text-yellow-500">Services</span>
+                        </h2>
+                        <p className="text-neutral-400 max-w-2xl mx-auto">
+                            Comprehensive exterior solutions engineered for durability and performance.
+                        </p>
+                    </Reveal>
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {services.map((service, index) => (
-                        <div key={index} className="p-8 bg-black border border-neutral-800 hover:border-yellow-500/50 transition-colors group">
-                            <div className="text-yellow-500 mb-6 group-hover:scale-110 transition-transform duration-300">
-                                {service.icon}
+                        <Reveal key={index} delay={index * 100} width="100%">
+                            <div className="p-8 bg-black border border-neutral-800 hover:border-yellow-500/50 transition-colors group h-full">
+                                <div className="text-yellow-500 mb-6 group-hover:scale-110 transition-transform duration-300">
+                                    {service.icon}
+                                </div>
+                                <h3 className="text-xl font-bold mb-4 uppercase tracking-wide">{service.title}</h3>
+                                <p className="text-neutral-400 text-sm leading-relaxed">
+                                    {service.description}
+                                </p>
                             </div>
-                            <h3 className="text-xl font-bold mb-4 uppercase tracking-wide">{service.title}</h3>
-                            <p className="text-neutral-400 text-sm leading-relaxed">
-                                {service.description}
-                            </p>
-                        </div>
+                        </Reveal>
                     ))}
                 </div>
             </div>

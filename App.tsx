@@ -6,6 +6,7 @@ import QuoteEstimator from './components/QuoteEstimator';
 import AIDamageAnalyzer from './components/AIDamageAnalyzer';
 import AIChat from './components/AIChat';
 import { PageView } from './types';
+import { Reveal } from './components/Reveal';
 
 function App() {
   const [currentView, setCurrentView] = useState<PageView>(PageView.HOME);
@@ -33,29 +34,35 @@ function App() {
               <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-yellow-900/40 via-neutral-900 to-black pointer-events-none" />
 
               <div className="container mx-auto px-6 relative z-10">
-                <div className="text-center mb-12 md:mb-16">
-                  <span className="text-yellow-500 font-mono font-bold uppercase tracking-widest text-xs md:text-sm">Technology Meets Craftsmanship</span>
-                  <h2 className="text-3xl md:text-5xl font-black text-white mt-3 uppercase tracking-tighter">
-                    Smart Tools
-                  </h2>
-                </div>
+                <Reveal>
+                  <div className="text-center mb-12 md:mb-16">
+                    <span className="text-yellow-500 font-mono font-bold uppercase tracking-widest text-xs md:text-sm">Technology Meets Craftsmanship</span>
+                    <h2 className="text-3xl md:text-5xl font-black text-white mt-3 uppercase tracking-tighter">
+                      Smart Tools
+                    </h2>
+                  </div>
+                </Reveal>
 
                 {/* Switch to single column on tablets (xl:grid-cols-2) to give complex tools room */}
                 <div className="grid xl:grid-cols-2 gap-8 md:gap-12">
-                  <div className="flex flex-col h-full">
-                    <div className="mb-4 md:mb-6 pl-2 border-l-4 border-yellow-500">
-                      <h3 className="text-xl md:text-2xl font-bold text-white font-mono uppercase">AI_Assessment</h3>
-                      <p className="text-neutral-400 text-sm md:text-base mt-1">Upload visual data for instant structural analysis.</p>
+                  <Reveal delay={200} width="100%">
+                    <div className="flex flex-col h-full">
+                      <div className="mb-4 md:mb-6 pl-2 border-l-4 border-yellow-500">
+                        <h3 className="text-xl md:text-2xl font-bold text-white font-mono uppercase">AI_Assessment</h3>
+                        <p className="text-neutral-400 text-sm md:text-base mt-1">Upload visual data for instant structural analysis.</p>
+                      </div>
+                      <AIDamageAnalyzer />
                     </div>
-                    <AIDamageAnalyzer />
-                  </div>
-                  <div className="flex flex-col h-full">
-                    <div className="mb-4 md:mb-6 pl-2 border-l-4 border-yellow-500">
-                      <h3 className="text-xl md:text-2xl font-bold text-white font-mono uppercase">Cost_Estimator_V1</h3>
-                      <p className="text-neutral-400 text-sm md:text-base mt-1">Calculate project parameters and material costs.</p>
+                  </Reveal>
+                  <Reveal delay={400} width="100%">
+                    <div className="flex flex-col h-full">
+                      <div className="mb-4 md:mb-6 pl-2 border-l-4 border-yellow-500">
+                        <h3 className="text-xl md:text-2xl font-bold text-white font-mono uppercase">Cost_Estimator_V1</h3>
+                        <p className="text-neutral-400 text-sm md:text-base mt-1">Calculate project parameters and material costs.</p>
+                      </div>
+                      <QuoteEstimator />
                     </div>
-                    <QuoteEstimator />
-                  </div>
+                  </Reveal>
                 </div>
               </div>
             </div>
@@ -70,10 +77,12 @@ function App() {
                     { label: '50-Year', sub: 'Warranty' },
                     { label: 'A+ Rated', sub: 'Service' }
                   ].map((item, i) => (
-                    <div key={i} className="bg-neutral-900/50 p-6 md:p-8 rounded-sm border border-neutral-800 flex flex-col items-center justify-center text-center group hover:border-yellow-500/50 transition-colors duration-300">
-                      <span className="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors font-mono">{item.label}</span>
-                      <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 group-hover:text-neutral-300 transition-colors">{item.sub}</span>
-                    </div>
+                    <Reveal key={i} delay={i * 100} width="100%">
+                      <div className="bg-neutral-900/50 p-6 md:p-8 rounded-sm border border-neutral-800 flex flex-col items-center justify-center text-center group hover:border-yellow-500/50 transition-colors duration-300 h-full">
+                        <span className="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors font-mono">{item.label}</span>
+                        <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 group-hover:text-neutral-300 transition-colors">{item.sub}</span>
+                      </div>
+                    </Reveal>
                   ))}
                 </div>
               </div>
@@ -215,9 +224,11 @@ function App() {
             </ul>
           </div>
         </div>
-        <div className="container mx-auto px-6 pt-8 border-t border-neutral-900 text-center text-[10px] md:text-xs opacity-50 font-mono">
-          &copy; {new Date().getFullYear()} Ryan Construction Systems. ALL RIGHTS RESERVED.
-        </div>
+        <Reveal width="100%">
+          <div className="container mx-auto px-6 pt-8 border-t border-neutral-900 text-center text-[10px] md:text-xs opacity-50 font-mono">
+            &copy; {new Date().getFullYear()} Ryan Construction Systems. ALL RIGHTS RESERVED.
+          </div>
+        </Reveal>
       </footer>
 
       {/* Floating Chat Widget */}
