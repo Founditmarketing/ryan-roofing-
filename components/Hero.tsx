@@ -18,14 +18,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
     return (
         <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
-            <div className="absolute inset-0 z-0">
-                <img
-                    src="/ryanconstructionnewhero.jpg"
-                    alt="Hero Background"
-                    className="w-full h-full object-cover will-change-transform"
-                    style={{ transform: `translateY(${scrollY * 0.5}px)` }}
-                />
-                <div className="absolute inset-0 bg-black/50" />
+            <div className="absolute inset-0 z-0 bg-black">
+                {/* Image removed */}
             </div>
 
             {/* Added extra padding for mobile to account for fixed header and bottom spacing */}
